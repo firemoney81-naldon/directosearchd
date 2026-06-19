@@ -1,23 +1,960 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
+
+  <!-- JSON-LD Structured Data for SEO (Optimized for Naver/Google Snippets and AI Search Engines) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "프리우스 하이브리드 보험료 비교견적 센터",
+        "url": "https://yourwebsite.com",
+        "description": "2026년 토요타 프리우스 모델별 자동차 보험료 비교 플랫폼. 다양한 다이렉트 보험 정보를 프리우스 오너 맞춤형으로 분석하여 가장 저렴하고 합리적인 견적을 제시합니다.",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Prius Insurance Expert Team",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://yourwebsite.com/img/logo.webp"
+            }
+        },
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://yourwebsite.com/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+
+    <!-- CSS Styling (Modern, Soft, Warm & Professional Aesthetics) -->
+    <style>
+        /* CSS Reset and Base Styles */
+        body { 
+            margin: 0; 
+            padding: 0; 
+            font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; 
+            background-color: #fcfefe; 
+            color: #2b2d42; 
+            line-height: 1.7; 
+        }
+        a { 
+            text-decoration: none; 
+            color: inherit; 
+        }
+        ul, li { 
+            list-style: none; 
+            padding: 0; 
+            margin: 0; 
+        }
+        h1, h2, h3, h4 { 
+            margin: 0; 
+            line-height: 1.4; 
+            color: #1d3557;
+        }
+        img { 
+            max-width: 100%; 
+            height: auto; 
+            display: block; 
+        }
+        .container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 0 20px; 
+        }
+
+        /* Color Palette: Eco-friendly soft green and trustworthy navy */
+        :root {
+            --primary-color: #2a9d8f; /* Soft Emerald Green representing hybrids */
+            --secondary-color: #264653; /* Deep Slate Blue for trust */
+            --accent-color: #e76f51; /* Soft Terracotta Red for CTA */
+            --background-light: #f4fafd;
+            --background-dark: #edf6f9;
+            --highlight-color: #1d3557;
+            --border-color: #e2e8f0;
+        }
+
+        /* Header Styling */
+        .header { 
+            background-color: #ffffff; 
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03); 
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .header-menu { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 15px 0; 
+        }
+        .navbar-brand {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .nav-list {
+            display: flex;
+            gap: 20px;
+        }
+        .nav-link { 
+            font-size: 0.95rem; 
+            color: var(--secondary-color); 
+            font-weight: 600; 
+            padding: 8px 12px; 
+            border-radius: 6px;
+            transition: background-color 0.2s, color 0.2s;
+        }
+        .nav-link:hover {
+            background-color: var(--background-light);
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero-banner { 
+            background: linear-gradient(135deg, rgba(38, 70, 83, 0.9) 0%, rgba(42, 157, 143, 0.8) 100%), url('https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') center center / cover no-repeat; 
+            padding: 120px 0; 
+            text-align: center; 
+            color: white; 
+            position: relative; 
+        }
+        .hero-content { 
+            max-width: 850px; 
+            margin: 0 auto; 
+            position: relative; 
+            z-index: 2; 
+        }
+        .hero-content h1 { 
+            font-size: 3rem; 
+            font-weight: 800; 
+            color: white; 
+            margin-bottom: 25px; 
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); 
+            word-break: keep-all;
+        }
+        .hero-content p { 
+            font-size: 1.25rem; 
+            color: #f1f5f9; 
+            margin-bottom: 40px; 
+            line-height: 1.8; 
+            word-break: keep-all;
+        }
+        .main-cta-btn { 
+            background-color: var(--accent-color); 
+            color: white; 
+            padding: 18px 40px; 
+            border-radius: 30px; 
+            font-weight: 700; 
+            font-size: 1.15rem; 
+            transition: transform 0.2s, background-color 0.2s; 
+            box-shadow: 0 4px 15px rgba(231, 111, 81, 0.4); 
+            display: inline-block;
+        }
+        .main-cta-btn:hover { 
+            background-color: #d85a38; 
+            transform: translateY(-2px);
+        }
+
+        /* Content Sections */
+        .content-section { 
+            padding: 90px 0; 
+            background-color: #ffffff; 
+        }
+        .content-section.gray { 
+            background-color: var(--background-dark); 
+        }
+        .section-title {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px auto;
+        }
+        .section-title h2 { 
+            font-size: 2.3rem; 
+            font-weight: 800; 
+            color: var(--highlight-color); 
+            margin-bottom: 20px; 
+            word-break: keep-all;
+        }
+        .section-title p { 
+            color: #4a5568; 
+            font-size: 1.1rem; 
+            word-break: keep-all;
+        }
+
+        /* Card Layouts */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .info-card { 
+            background-color: white; 
+            border-radius: 16px; 
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04); 
+            padding: 35px; 
+            border: 1px solid var(--border-color); 
+            transition: transform 0.3s ease, box-shadow 0.3s ease; 
+        }
+        .info-card:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08); 
+        }
+        .info-card h3 { 
+            font-size: 1.4rem; 
+            color: var(--highlight-color); 
+            margin-bottom: 18px; 
+            border-bottom: 3px solid var(--background-dark); 
+            padding-bottom: 12px; 
+        }
+        .info-card p {
+            font-size: 0.98rem;
+            color: #4a5568;
+            margin-bottom: 15px;
+        }
+        .info-card ul li { 
+            padding-left: 20px; 
+            position: relative; 
+            margin-bottom: 12px; 
+            font-size: 0.95rem; 
+            color: #4a5568; 
+        }
+        .info-card ul li:before { 
+            content: "•"; 
+            position: absolute; 
+            left: 0; 
+            color: var(--primary-color); 
+            font-size: 1.5rem; 
+            line-height: 1;
+            top: -2px;
+        }
+
+        /* Data Visualization (Tables) */
+        .table-responsive {
+            overflow-x: auto;
+            margin-top: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+            border: 1px solid var(--border-color);
+        }
+        .data-table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            font-size: 0.95rem; 
+            text-align: left;
+            background-color: white;
+        }
+        .data-table th, .data-table td { 
+            padding: 18px 20px; 
+            border-bottom: 1px solid var(--border-color); 
+        }
+        .data-table th { 
+            background-color: var(--secondary-color); 
+            color: white; 
+            font-weight: 700; 
+            font-size: 1rem; 
+        }
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+        .data-table tr:nth-child(even) { 
+            background-color: #f8fafc; 
+        }
+        .data-table .highlight { 
+            background-color: #eafcf9; 
+            font-weight: 700; 
+            color: var(--primary-color); 
+        }
+
+        /* Interactive Calculator Simulator Section (Dwell Time Optimization) */
+        .calculator-container {
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 45px rgba(0,0,0,0.05);
+            padding: 40px;
+            border: 1px solid var(--border-color);
+            margin-top: 40px;
+        }
+        .calc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        @media (max-width: 768px) {
+            .calc-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .calc-results {
+            background-color: var(--background-light);
+            border-radius: 12px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 1px dashed var(--primary-color);
+        }
+        .calc-results-val {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin: 15px 0;
+        }
+
+        /* Form Styling */
+        .form-area { 
+            background-color: #ffffff; 
+            padding: 45px; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05); 
+            max-width: 700px;
+            margin: 0 auto;
+            border: 1px solid var(--border-color);
+        }
+        .form-group { 
+            margin-bottom: 22px; 
+        }
+        .form-label { 
+            display: block; 
+            font-weight: 700; 
+            margin-bottom: 10px; 
+            color: var(--secondary-color); 
+            font-size: 0.95rem; 
+        }
+        .form-input, .form-select { 
+            width: 100%; 
+            padding: 14px 16px; 
+            border: 1px solid #cbd5e1; 
+            border-radius: 8px; 
+            box-sizing: border-box; 
+            font-size: 1rem; 
+            background-color: #f8fafc;
+            transition: border-color 0.2s, background-color 0.2s;
+        }
+        .form-input:focus, .form-select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            background-color: #ffffff;
+        }
+        .form-submit-btn { 
+            background-color: var(--primary-color); 
+            color: white; 
+            padding: 18px 30px; 
+            border: none; 
+            border-radius: 8px; 
+            font-size: 1.1rem; 
+            font-weight: 700;
+            cursor: pointer; 
+            transition: background-color 0.2s; 
+            width: 100%; 
+        }
+        .form-submit-btn:hover { 
+            background-color: #1f7a6f; 
+        }
+
+        /* Accordion Styling for FAQs */
+        .accordion-item { 
+            border: 1px solid var(--border-color); 
+            margin-bottom: 15px; 
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01); 
+            border-radius: 12px; 
+            background-color: white;
+            overflow: hidden;
+        }
+        .accordion-header button { 
+            background-color: white; 
+            font-size: 1.1rem; 
+            font-weight: 700; 
+            color: var(--highlight-color); 
+            padding: 22px; 
+            width: 100%;
+            text-align: left;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s, color 0.2s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .accordion-header button:hover {
+            background-color: var(--background-light);
+        }
+        .accordion-body { 
+            padding: 25px; 
+            background-color: white; 
+            font-size: 1rem; 
+            line-height: 1.8; 
+            color: #4a5568; 
+            border-top: 1px solid var(--border-color);
+            display: none;
+        }
+        .accordion-item.active .accordion-body {
+            display: block;
+        }
+
+        /* Footer Styling */
+        .footer { 
+            background-color: var(--secondary-color); 
+            color: #cbd5e1; 
+            padding: 60px 0; 
+            font-size: 0.9rem; 
+        }
+        .footer-logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+        .footer-links {
+            margin-bottom: 25px;
+        }
+        .footer-links a { 
+            margin: 0 12px; 
+            color: #94a3b8; 
+            transition: color 0.2s;
+        }
+        .footer-links a:hover {
+            color: white;
+        }
+        .footer-info p { 
+            margin-bottom: 8px; 
+            color: #94a3b8;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.2rem; }
+            .hero-content p { font-size: 1.1rem; }
+            .content-section { padding: 50px 0; }
+            .section-title h2 { font-size: 1.8rem; }
+            .data-table th, .data-table td { font-size: 0.85rem; padding: 12px; }
+            .header-menu { flex-direction: column; text-align: center; gap: 15px; }
+            .nav-list { flex-wrap: wrap; justify-content: center; }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Area (Navigation) -->
+    <header class="header">
+        <div class="container header-menu">
+            <a class="navbar-brand" href="/">
+                <span>Toyota Prius Insurance</span>
+            </a>
+            <nav>
+                <ul class="nav-list">
+                    <li><a class="nav-link" href="#calculator">보험료 계산기</a></li>
+                    <li><a class="nav-link" href="#model-analysis">모델별 분석</a></li>
+                    <li><a class="nav-link" href="#age-comparison">연령별 비교</a></li>
+                    <li><a class="nav-link" href="#saving-tips">절약 가이드</a></li>
+                    <li><a class="nav-link" href="#faq-section">자주 묻는 질문</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
     <main>
-      <h1>Home page</h1>
+        <!-- Section 1: Hero Banner -->
+        <section class="hero-banner">
+            <div class="container hero-content">
+                <h1 id="mainTitle">프리우스 하이브리드 보험료 평균 얼마? 2026년 최신 기준 합리적인 견적 계산기</h1>
+                <p>토요타 프리우스 3세대, 4세대부터 최신 5세대 및 플러그인 하이브리드(Prime) 모델까지. 나이와 운전 경력에 따른 보험료 예상 금액을 상세 비교 분석합니다. 다양한 다이렉트 혜택을 비교하고 가장 저렴한곳을 찾아 가입하세요.</p>
+                <a href="#mainForm" class="main-cta-btn">내 프리우스 보험료 1분 확인하기</a>
+            </div>
+        </section>
+
+        <!-- Section 2: Interactive Dwell-Time Calculator Simulator -->
+        <section class="content-section" id="calculator">
+            <div class="container">
+                <div class="section-title">
+                    <h2>프리우스 하이브리드 자동차 보험료 간이 계산 시뮬레이터</h2>
+                    <p>본인의 연령대와 보유하신 프리우스 모델을 선택하시면 대략적인 2026년 기준 예상 보험료 연간 금액을 즉시 도출해 줍니다. 다양한 다이렉트 할인 옵션들을 직접 체크해 보며 가격 변동 추이를 살펴보세요.</p>
+                </div>
+                <div class="calculator-container">
+                    <div class="calc-grid">
+                        <div>
+                            <div class="form-group">
+                                <label class="form-label" for="calc-model">보유 모델 선택</label>
+                                <select id="calc-model" class="form-select" onchange="calculatePriusPremium()">
+                                    <option value="prius5">프리우스 5세대 하이브리드 (최신형)</option>
+                                    <option value="prius5p">프리우스 5세대 플러그인 하이브리드 (PHEV)</option>
+                                    <option value="prius4">프리우스 4세대 하이브리드</option>
+                                    <option value="prius3">프리우스 3세대 하이브리드</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="calc-age">가입자 연령대 설정</label>
+                                <select id="calc-age" class="form-select" onchange="calculatePriusPremium()">
+                                    <option value="21">만 21세 이상 (초기 신규 운전자)</option>
+                                    <option value="26">만 26세 이상 (청년층 진입)</option>
+                                    <option value="30" selected>만 30세 이상 (표준 평균 연령대)</option>
+                                    <option value="43">만 43세 이상 (가장 안정적인 무사고 구간)</option>
+                                    <option value="50">만 50세 이상 (중장년 숙련 운전자)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">해당되는 추가 할인 특약 중복 체크</label>
+                                <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 5px;">
+                                    <label><input type="checkbox" id="chk-mileage" onchange="calculatePriusPremium()" checked> 마일리지 주행거리 할인 특약 적용 (연 5천km 미만 운행 가정)</label>
+                                    <label><input type="checkbox" id="chk-blackbox" onchange="calculatePriusPremium()" checked> 블랙박스 장착 할인 혜택</label>
+                                    <label><input type="checkbox" id="chk-adas" onchange="calculatePriusPremium()" checked> 토요타 세이프티 센스(ADAS) 첨단 안전장치 할인</label>
+                                    <label><input type="checkbox" id="chk-tmap" onchange="calculatePriusPremium()"> TMAP / 카카오내비 안전운전 점수 도달 할인</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="calc-results">
+                            <h3 style="margin-bottom: 10px;">프리우스 연간 예상 보험료</h3>
+                            <p style="font-size: 0.9rem; color: #64748b;">선택 조건 기반 예상 시뮬레이션 결과</p>
+                            <div class="calc-results-val" id="premium-result">785,000 원</div>
+                            <p style="font-size: 0.85rem; color: #64748b; text-align: center; word-break: keep-all; margin: 0;">
+                                본 계산기는 보편적인 다이렉트 요율 기반 모의 분석용이며, 개개인의 정확한 할인 등급 및 법정 사고 이력에 따라 다를 수 있으므로 정밀 견적은 전문 상담을 통해 확인하시기 바랍니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Model and Generational Analysis -->
+        <section class="content-section gray" id="model-analysis">
+            <div class="container">
+                <div class="section-title">
+                    <h2>토요타 프리우스 세대별 하이브리드 보험료 산정 비교</h2>
+                    <p>수입 하이브리드 세그먼트의 명가, 프리우스는 세대교체 시점의 차량 가액 감가율과 장착된 첨단 예방 안전 사양에 따라 보험 등급 평가와 자차 부담금 비용에서 상당한 차이점을 나타냅니다.</p>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>프리우스 구분</th>
+                                <th>대표 차량 등급</th>
+                                <th>2026 기준 평균 차량 가액</th>
+                                <th>평균 보험료 예상 범위 (만 30세 기준)</th>
+                                <th>세대별 특징 및 장단점 분석</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>프리우스 5세대</td>
+                                <td>LE, XLE 하이브리드</td>
+                                <td>3,800만 ~ 4,200만 원</td>
+                                <td>80만 원 ~ 110만 원</td>
+                                <td>차량가액이 높으나 첨단 안전 장치(TSS) 기본 적용으로 다이렉트 특약 가입 시 유리</td>
+                            </tr>
+                            <tr>
+                                <td>프리우스 5세대 PHEV</td>
+                                <td>SE, XSE 플러그인</td>
+                                <td>4,300만 ~ 4,800만 원</td>
+                                <td>90만 원 ~ 125만 원</td>
+                                <td>대용량 고전압 배터리팩이 장착되어 자차 가액 및 수리비 비중이 크나 연비 효율 극대화</td>
+                            </tr>
+                            <tr>
+                                <td>프리우스 4세대</td>
+                                <td>E, S, AWD 등급</td>
+                                <td>1,800만 ~ 2,500만 원</td>
+                                <td>65만 원 ~ 85만 원</td>
+                                <td>잔존 차량 가치가 합리적으로 낮아 자차 보험료 비율이 낮으나 연식 누적으로 인한 단점 상존</td>
+                            </tr>
+                            <tr>
+                                <td>프리우스 3세대</td>
+                                <td>E, M, S 클래스</td>
+                                <td>600만 ~ 1,100만 원</td>
+                                <td>50만 원 ~ 75만 원</td>
+                                <td>중고차 시세 하락으로 제일 저렴한곳 가입이 용이하나 고장이나 사고 시 부품 수급 기간 소요</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="margin-top: 40px; font-size: 1rem; color: #4a5568;">
+                    <p>
+                        토요타 하이브리드 시스템은 높은 내구성을 장점으로 자랑하지만, 만약 전면부 접촉사고가 발생해 하이브리드 인버터 및 냉각 계통, 고전압 와이어링이 파손되는 경우 예상을 훌쩍 뛰어넘는 고액의 부품 가격이 청구될 수 있습니다. 
+                        이로 인해 국내 수입차 전용 특별 할증 요율 및 부품 등급에서 수입 다이렉트 차량 중 중간 이상의 순위를 마크하고 있습니다. 
+                        특히 고가의 부품 교체 리스크를 상쇄하기 위해 자차(자기차량손해) 항목의 자기부담금 비율은 20%로 세팅하는 것이 보편적으로 추천됩니다.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Age-based Comparison and Insurance Premium Fluctuations -->
+        <section class="content-section" id="age-comparison">
+            <div class="container">
+                <div class="section-title">
+                    <h2>연령에 따른 프리우스 하이브리드 평균 보험료 추이</h2>
+                    <p>수입 친환경 하이브리드 세단 가입 단계에서 연령과 사고 이력은 가격을 결정짓는 핵심 지표입니다. 20대 사회 초년생 신규 가입부터 40대 베테랑 드라이버까지의 차이점을 파악해 보세요.</p>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>구분 연령</th>
+                                <th>최초 신규 가입자 예상 가격</th>
+                                <th>3년 이상 무사고 가입자 예상 가격</th>
+                                <th>추천 특약 및 주요 할인 혜택 매칭</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>만 21세 이하</td>
+                                <td class="highlight">180만 ~ 240만 원</td>
+                                <td>140만 ~ 170만 원</td>
+                                <td>부모님 명의 지분 가입 후 운전자 한정 지정을 통한 가입이 훨씬 유용함</td>
+                            </tr>
+                            <tr>
+                                <td>만 24세 ~ 25세</td>
+                                <td>130만 ~ 160만 원</td>
+                                <td>95만 ~ 120만 원</td>
+                                <td>군 운전병 경력, 해외 운전 면허 보유 이력 매칭으로 경력 인정 할인 적용</td>
+                            </tr>
+                            <tr>
+                                <td>만 26세 ~ 29세</td>
+                                <td>95만 ~ 125만 원</td>
+                                <td>75만 ~ 95만 원</td>
+                                <td>커플/부부 한정 특약 및 직장인 마일리지 어플 연동을 적극 활용</td>
+                            </tr>
+                            <tr>
+                                <td>만 30세 ~ 42세</td>
+                                <td>75만 ~ 95만 원</td>
+                                <td>55만 ~ 70만 원</td>
+                                <td>가장 저렴한 구간이며, 안전운전 점수 할인 앱 및 자녀 할인 결합 극대화 가능</td>
+                            </tr>
+                            <tr>
+                                <td>만 43세 이상</td>
+                                <td>70만 ~ 85만 원</td>
+                                <td>50만 ~ 65만 원</td>
+                                <td>부부 한정 특약 혹은 기명피보험자 1인 한정 선택 시 극도의 할인 단가 진입</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="margin-top: 45px;">
+                    <h3>연령대별 프리우스 오너들의 인터넷 커뮤니티 현실 정보 취합</h3>
+                    <p>
+                        디시인사이드 차갤, 보배드림, 에펨코리아(펨코) 국산/수입차 게시판의 생생한 프리우스 하이브리드 보험료 내돈내산 후기들을 종합해 보면, 만 20대 초반 신규로 5세대 프리우스를 입출고한 유저들의 경우 첫 해 종합 보험료로 약 220만 원대를 청구받아 충격을 받았다는 반응이 주를 이룹니다. 
+                        반면에 30대 후반 직장인으로서 무사고 경력 10년을 유지하고 TMAP 점수 90점 이상을 유지한 케이스에서는 연간 50만 원대 중반의 매우 싼곳을 선별해 가입 완료했다는 성공담도 왕왕 목격됩니다.
+                    </p>
+                    <p>
+                        이처럼 연령 및 경력 요건에 따른 편차가 심하기 때문에 신규로 프리우스 하이브리드를 인수하실 예정이라면 무작정 오프라인 설계사 대면 영업을 통하기보다, 온라인 다이렉트 계산기 사이트를 활용해 여러 브랜드 업체의 다이렉트 전용 조건들을 직접 대조해 보고 셀프 조율하는 과정이 필수적으로 요청됩니다.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Strategic Saving Guide & Community Buzzwords -->
+        <section class="content-section gray" id="saving-tips">
+            <div class="container">
+                <div class="section-title">
+                    <h2>다이렉트 프리우스 하이브리드 보험료를 줄이는 영리한 5가지 노하우</h2>
+                    <p>매년 갱신 시기마다 돌아오는 보험료 부담을 극적으로 완화하기 위해 실무 전문가들이 적극 권장하는 다이렉트 특약 설계 가이드를 전격 공개합니다.</p>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>1. 주행거리 마일리지 환급 혜택</h3>
+                        <p>프리우스는 연비 성능이 극도로 우수하여 장거리 출퇴근용으로 많이 쓰이지만, 반대로 세컨드 카로 운영하며 연간 주행거리가 3,000km ~ 5,000km 미만인 유저들도 상당히 많습니다. 마일리지 특약은 주행을 적게 할수록 연말 혹은 만기 시점에 납입했던 비용 중 약 20%에서 최고 35% 내외를 고스란히 계좌로 환급 환불해 주는 실속 상품입니다.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>2. 플랫폼 안전운전 할인 활용 (토스, 카카오톡, 네이버)</h3>
+                        <p>모바일 앱 생태계가 정교해짐에 따라 티맵(TMAP), 카카오내비 앱 내부의 주행 안전 점수를 연동하면 8%에서 최대 13%까지 즉시 다이렉트 기본 단가를 깎아줍니다. 토스나 카카오페이, 네이버페이 같은 간편 금융 플랫폼 어플 내에서 수시로 진행되는 캐시백 이벤트, 모바일 주유 상품권 사은품, 카드사 제휴 현금지원 혜택을 경유해 진입하는 방식도 실질적인 지출 비용을 획기적으로 낮추는 지름길입니다.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>3. 부모님 경력 합산 및 명의 분할</h3>
+                        <p>아직 나이가 어린 만 26세 미만 신규 운전자 분들은 단독 명의로 종합 보험 가입 시 상당한 금액 부담이 따릅니다. 이때 차량 지분의 1%를 운전 경력이 넉넉하고 무사고 이력이 긴 부모님 명의로 공동 설정한 뒤, 부모님 주계약 아래 지정 1인 혹은 가족 한정 특약으로 가입하는 전략이 제일 유용합니다. 이후 매년 무사고 운전 경력을 인정 등록하여 추후 단독 명의로 독립 시 요율 부담을 미리 경감해 둡니다.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>4. 자기차량손해(자차) 특약의 합리적 조정</h3>
+                        <p>구형 3세대 및 4세대 프리우스를 중고 수입차로 업어오신 운전자들의 경우, 차량 가액 평가가 500만 원 이하로 극히 떨어졌다면 자차 담보를 제외하고 가입하는 과감한 판단을 하기도 합니다. 자차를 미가입할 경우 즉각적으로 전체 납입금이 반토막 가까이 뚝 떨어지는 장점이 있으나, 자가 과실 사고 시 수리비를 전부 개인 자금으로 수선해야 하는 단점이 공존하므로 면밀한 검토가 요구됩니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Reliable External Resources (Authoritative and Trusted Links) -->
+        <section class="content-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>신뢰할 수 있는 자동차 행정 및 보험 공식 플랫폼 정보원</h2>
+                    <p>가장 공인된 정부 공공 포털 및 공신력 있는 자동차 전문 웹 리소스를 참조하여 프리우스 하이브리드의 정확한 규격 정보 및 이력 조회를 바탕으로 설계해 보십시오.</p>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>1. 공공 통합 자동차 정보 - 정부24 자동차이력</h3>
+                        <p>양도받을 중고 하이브리드 프리우스의 체계적인 정비 횟수, 성능 점검 기록부 확인 및 자동차세 완납 증명 상태를 일괄 확인할 수 있는 공식 행정망 시스템입니다.</p>
+                        <a href="https://www.car365.go.kr/" target="_blank" style="color: var(--primary-color); font-weight: 700;">자동차365 대민 포털 바로가기</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>2. 한국교통안전공단 정기검사 통합망</h3>
+                        <p>프리우스 차량의 배기가스 자가 진단 및 하이브리드 고전압 장치 정기 검사 주기 확인을 통해 가입 전 불이익과 불법 튜닝으로 인한 보장 제외 리스크를 차단합니다.</p>
+                        <a href="https://www.kotsa.or.kr/main.do" target="_blank" style="color: var(--primary-color); font-weight: 700;">한국교통안전공단 홈페이지 방문하기</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>3. 손해보험협회 공시실 - 보험다모아</h3>
+                        <p>금융위원회와 손해보험협회에서 공동으로 투명하게 운영하는 국내 모든 원수 보험사 자동차 가입 표준 견적 비교 공식 메타 검색 포털 사이트입니다.</p>
+                        <a href="https://www.e-insmarket.or.kr/" target="_blank" style="color: var(--primary-color); font-weight: 700;">보험다모아 실시간 요율 비교하기</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>4. 한국보험개발원 카히스토리</h3>
+                        <p>인수하려는 중고 프리우스 3세대 또는 4세대의 전손 여부, 침수 흔적, 타차 가해 피해 누적 비용 및 렌트카 용도 변경 이력 데이터를 투명하게 입수할 수 있습니다.</p>
+                        <a href="https://www.carhistory.or.kr/" target="_blank" style="color: var(--primary-color); font-weight: 700;">카히스토리 사고이력 검증하기</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>5. 나무위키 토요타 프리우스 종합 스펙 정보</h3>
+                        <p>역대 프리우스 세대별 기술적 특징, 배터리 소자의 변천 과정(니켈 수소 vs 리튬 이온), 연비 지표 등 자동차 전반의 역사를 가장 정교하게 해설하는 유저 참여형 사전입니다.</p>
+                        <a href="https://namu.wiki/w/%ED%86%A0%EC%9A%94%ED%83%80%20%ED%94%84%EB%A6%AC%EC%9A%B0%EC%8A%A4" target="_blank" style="color: var(--primary-color); font-weight: 700;">나무위키 프리우스 위키 열람하기</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: User Engagement Lead Form (Calculated to increase dwell time and conversion) -->
+        <section class="content-section gray" id="mainForm">
+            <div class="container">
+                <div class="form-area">
+                    <h2 style="text-align: center; margin-bottom: 20px; color: var(--secondary-color);">프리우스 전문 1:1 최적화 견적 분석 상담 신청</h2>
+                    <p style="text-align: center; color: #64748b; margin-bottom: 35px; word-break: keep-all;">
+                        최적의 다이렉트 할인 매칭부터 제휴 신용카드 즉시 캐시백 혜택, 모바일 상품권 사은품 증정 및 주말 추가 이벤트 현금지원 한도 확인까지 프리우스 전담 컨설팅 전문가가 최저가 조율을 성심성의껏 도와드립니다.
+                    </p>
+                    <form id="lead-form">
+                        <div class="form-group">
+                            <label for="frmName" class="form-label">신청자 성함</label>
+                            <input type="text" id="frmName" class="form-input" placeholder="정확한 견적서 전송을 위해 성함을 입력해 주세요.">
+                        </div>
+                        <div class="form-group">
+                            <label for="frmPhone" class="form-label">연락처 (휴대폰 번호)</label>
+                            <input type="text" id="frmPhone" class="form-input" placeholder="(-) 하이픈 없이 숫자만 입력해 주세요.">
+                        </div>
+                        <div class="form-group">
+                            <label for="frmModel" class="form-label">보유 또는 예정 프리우스 세부 등급</label>
+                            <select id="frmModel" class="form-select">
+                                <option value="">차량 등급을 선택해 주세요</option>
+                                <option value="prius5_hev">프리우스 5세대 HEV (LE / XLE)</option>
+                                <option value="prius5_phev">프리우스 5세대 PHEV (SE / XSE)</option>
+                                <option value="prius4_hev">프리우스 4세대 HEV (E / S / AWD)</option>
+                                <option value="prius_prime_4">프리우스 프라임 4세대 (PHEV)</option>
+                                <option value="prius3_hev">프리우스 3세대 HEV (전체 모델)</option>
+                                <option value="prius_c">프리우스 C (소형 하이브리드)</option>
+                            </select>
+                        </div>
+                        <div class="form-group" style="display: flex; align-items: flex-start; gap: 10px; margin-top: 10px;">
+                            <input type="checkbox" id="privacyAgree" style="margin-top: 4px;">
+                            <label for="privacyAgree" style="font-size: 0.88rem; color: #4a5568;">
+                                개인정보 수집 및 제3자 제공, 상담 안내 목적 문자/전화 발송에 동의합니다. 
+                                <span style="color: var(--primary-color); font-weight: 700; cursor: pointer;" onclick="openPrivacyModal()">[자세히 보기]</span>
+                            </label>
+                        </div>
+                        <button type="button" class="form-submit-btn" onclick="submitLeadForm()">내 프리우스 맞춤 비교견적 신청하기</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 8: Deep FAQs (SEO Optimized for Naver Knowledge iN and Snippets) -->
+        <section class="content-section" id="faq-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>자주 접수되는 질문과 답변 (FAQ)</h2>
+                    <p>토요타 프리우스 오너 및 예비 매수자들이 보험 가입 및 설계 과정에서 흔히 마주치는 의문점들을 명확히 해명해 드립니다.</p>
+                </div>
+                
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <button type="button" onclick="toggleAccordion(this)">
+                                Q1. 하이브리드 전용 배터리 특약은 꼭 따로 들어야 합니까?
+                            </button>
+                        </div>
+                        <div class="accordion-body">
+                            예, 아주 강하게 추천해 드립니다. 특히 최신 프리우스 5세대 및 PHEV 모델은 고전압 리튬 이온 메인 배터리의 교체 비용만 대략 500만 원에서 800만 원 선을 가볍게 상회합니다. 사고가 발생하여 하부 배터리 케이스가 긁히거나 크랙이 가 안전상의 사유로 완전 전면 교체 판정을 받는다면 자차 가액 한도만으로는 부족할 위험이 있습니다. 일부 브랜드 손해보험사들은 하이브리드 친환경 전용 배터리 초과 수리비 지원 특약을 마련하고 있으며, 이 특약을 탑재할 시 소액의 연간 비용 추가만으로 자차 한도를 초과하는 거액의 배터리 파손 금액을 완전히 방어해 주므로 가입을 적극 권장해 드립니다.
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <button type="button" onclick="toggleAccordion(this)">
+                                Q2. 다이렉트 자동차 보험사별 프리우스 할인율 격차가 정말 심한가요?
+                            </button>
+                        </div>
+                        <div class="accordion-body">
+                            그렇습니다. 보험사마다 그 해 보유하고 있는 수입 하이브리드 세단 차종군 전체의 사고 손해율 통계치에 따라 자차 기준 요율을 상시 변경 조율합니다. 예컨대 어떤 다이렉트 회사는 프리우스 4세대 연식 차종의 대인 대물 리스크를 안전하게 판정해 기본 요율을 저렴하게 평가하는 반면, 다른 업체는 고성능 친환경 차량 수리비 데이터 누적으로 더 무겁게 매길 수도 있습니다. 게다가 TMAP 안전운전 점수, 주행거리 마일리지 환불 요율, 자녀 동승 혜택 비중이 저마다 크게는 15% 이상 격차를 내기 때문에 한 군데 견적만 받고 선뜻 갱신 결정하는 것은 금물입니다.
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <button type="button" onclick="toggleAccordion(this)">
+                                Q3. 2026년 기준 챗지피티(ChatGPT)나 제미나이(Gemini) 같은 인공지능 AI 상담 정보를 100% 맹신해도 되나요?
+                            </button>
+                        </div>
+                        <div class="accordion-body">
+                            최근 구글 검색 포털이나 네이버 검색 창을 통해 프리우스 하이브리드 장단점과 싼곳 정보를 물색할 때 챗지피티 및 제미나이 등의 대화형 AI가 간결한 요약 답변을 띄워주는 사례가 눈에 띕니다. 다만, 이와 같은 인공지능 도우미가 전달하는 예상 가격과 정보는 과거의 평범한 평균 통계치를 바탕으로 제공되는 보편적 정보에 지나지 않습니다. 개별 가입 희망자가 갖고 있는 유일무이한 요율 등급, 특수한 사고 무사고 연속 기간, 가입할 당일의 제휴 신용카드 실적 할인율, 즉각 변동하는 보험사 손해율 할인 폭 등은 인공지능이 즉시 전산 조회할 수 없으므로 실제 전문 비교 시뮬레이터 시스템과 직접 1:1 실시간 매칭을 해 주셔야 정확하고 실질적인 최종 비용 견적이 도출됩니다.
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <button type="button" onclick="toggleAccordion(this)">
+                                Q4. 프리우스 플러그인 하이브리드(PHEV) 모델은 일반 하이브리드(HEV)와 세금이나 보험료 차이가 있나요?
+                            </button>
+                        </div>
+                        <div class="accordion-body">
+                            예, 유의미한 차이가 분명 존재합니다. 프리우스 PHEV는 일반 하이브리드 모델에 비해 고가의 충전식 배터리 셀이 대량 탑재되므로 차량 최초 구입 가격이 약 500만 원 이상 더 비쌉니다. 차량 구입 비용이 높을수록 자차(자기차량손해) 평가 가액 역시 정비례해서 올라가기 때문에 기본 종합 설계 시 연간 약 5만 원에서 15만 원 수준의 금액이 높게 예상되는 것이 보편적입니다. 하지만 하루 단거리 출퇴근 시 순수 전기 모드로 주행할 수 있어 주유 유지비를 완전히 절감할 수 있는 강력한 연비 장점이 자차 보험 차액의 단점을 아득히 보완해 주므로, 본인의 주행 패턴을 냉철히 비교하여 합리적인 선택을 내리시는 것을 권고해 드립니다.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 9: Dense Informative Deep Dive for Semantic SEO -->
+        <section class="content-section gray">
+            <div class="container">
+                <h3>토요타 프리우스 하이브리드 자동차 보험 시장의 2026년 대변혁 기조</h3>
+                <p>
+                    친환경 전동화 모빌리티 흐름 속에서 토요타 프리우스 하이브리드는 가히 독보적인 이정표를 남긴 차량입니다. 
+                    2026년 현시점 수입차 전용 자동차 보험 체계는 하이브리드와 플러그인 하이브리드(PHEV)에 대해 종전보다 고도화되고 다변화된 요율 테이블을 들이밀고 있습니다. 
+                    예전에는 국산 수입 관계없이 단순 배기량 기준으로 대인, 대물 보험 가격의 기틀을 닦았다면, 현행 제도 하에서는 모델 세부 세대, 예방 주행 보조 시스템의 기술적 등급, 그리고 심지어 배터리 자가 진단 센서의 포함 유무에 이르기까지 복합적 잣대로 등급 순위를 나누고 있습니다.
+                </p>
+                <p>
+                    예를 들어 5세대 프리우스 하이브리드 및 플러그인 모델은 뛰어난 연료 효율성이라는 대전제와 더불어 토요타 세이프티 센스 가동률이 높아 대형 사고 유발 빈도가 역사상 가장 낮다는 실측적 데이터가 손해보험업계 공통 손해율 계산기에 등재되었습니다. 
+                    이는 동급 연식의 고마력 터보 외제 가솔린 세단과 견주었을 때 기본 책임 및 임의 담보 가격대 측면에서 현격하게 싼곳 요율이 부여되는 이점으로 작동하게 만듭니다. 
+                    그럼에도 불구하고 2세대나 3세대 프리우스 중고차 오너분들은 자산 평가 가치가 낮은 것과 비례해 차령 증가에 따른 노화 부품 교체 리스크가 함께 부가되어 자차 미가입의 유혹을 지속적으로 받게 됩니다.
+                </p>
+                <p>
+                    온라인에 수많은 비교 사이트와 다이렉트 추천 어플들이 범람하는 현실 속에서 단순하게 네이버나 구글의 최저 가격 순위만 체크한 채 무턱대고 가입을 속단했다가는 불행한 긴급 교환 접촉 상황 발생 시 대차 렌트 범위 축소, 무보험차 상해 한도 부족, 혹은 자기 신체 사고 보장의 결손이라는 치명적인 아픔을 겪을 수도 있습니다. 
+                    그렇기에 프리우스 보험 전문 업체의 세심한 맞춤 컨설팅 상담을 받아서 자신의 진짜 연령 조건(만 21세, 만 26세, 혹은 만 30세 이상 한정)과 생활권 기반 주행 반경을 빈틈없이 입력한 최적 설계서를 수령하는 과정이야말로 불필요한 고비용 누수를 원천 차단하는 지혜로운 오너십의 발로입니다.
+                </p>
+            </div>
+        </section>
     </main>
-  </body>
-</html>
+
+
+    <!-- Modal for Privacy Policy (Simplified for demo) -->
+    <div class="modal fade" id="privacyPopup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 10000; justify-content: center; align-items: center;">
+        <div style="background: white; padding: 30px; border-radius: 12px; max-width: 600px; width: 90%; max-height: 80vh; overflow-y: auto;">
+            <h3 style="margin-bottom: 15px;">개인정보 수집 및 동의 규약</h3>
+            <p style="font-size: 0.9rem; color: #4a5568; line-height: 1.6;">
+                본 비교 서비스 신청을 위해 기재하시는 신청자명, 연락처, 희망 차종은 맞춤형 다이렉트 견적 분석 및 상담 진행을 위해서만 수집되며, 목적 달성 완료 후 혹은 가입자가 삭제 요구 시 즉각 파기됨을 엄격히 밝힙니다. 개인정보 제3자 제공에 동의하시지 않는 경우 정밀 비교 분석 상담이 일부 지체될 수 있습니다.
+            </p>
+            <button type="button" class="form-submit-btn" style="margin-top: 20px;" onclick="closePrivacyModal()">확인 및 닫기</button>
+        </div>
+    </div>
+
+    <!-- Embedded Native JavaScript (Bootstrap independent to ensure speed and stability) -->
+    <script>
+        // Interactive Prius Insurance Premium Calculator Core Logic
+        function calculatePriusPremium() {
+            const model = document.getElementById("calc-model").value;
+            const age = document.getElementById("calc-age").value;
+            
+            // Base Premiums by Generation (for standard 만 30세, no discounts)
+            let basePremium = 800000;
+            if (model === "prius5") {
+                basePremium = 920000;
+            } else if (model === "prius5p") {
+                basePremium = 1050000;
+            } else if (model === "prius4") {
+                basePremium = 750000;
+            } else if (model === "prius3") {
+                basePremium = 600000;
+            }
+
+            // Age Multipliers
+            let ageMultiplier = 1.0;
+            if (age === "21") {
+                ageMultiplier = 2.4;
+            } else if (age === "26") {
+                ageMultiplier = 1.45;
+            } else if (age === "30") {
+                ageMultiplier = 1.0;
+            } else if (age === "43") {
+                ageMultiplier = 0.85;
+            } else if (age === "50") {
+                ageMultiplier = 0.80;
+            }
+
+            let computed = basePremium * ageMultiplier;
+
+            // Apply discounts sequentially
+            if (document.getElementById("chk-mileage").checked) {
+                computed = computed * 0.72; // 28% off
+            }
+            if (document.getElementById("chk-blackbox").checked) {
+                computed = computed * 0.96; // 4% off
+            }
+            if (document.getElementById("chk-adas").checked) {
+                computed = computed * 0.93; // 7% off
+            }
+            if (document.getElementById("chk-tmap").checked) {
+                computed = computed * 0.89; // 11% off
+            }
+
+            const finalPremiumValue = Math.round(computed / 10) * 10;
+            document.getElementById("premium-result").innerText = finalPremiumValue.toLocaleString() + " 원";
+        }
+
+        // Accordion Trigger Logic
+        function toggleAccordion(button) {
+            const currentItem = button.closest(".accordion-item");
+            const isActive = currentItem.classList.contains("active");
+            
+            // Close all active first
+            document.querySelectorAll(".accordion-item").forEach(item => {
+                item.classList.remove("active");
+            });
+
+            // Toggle selected
+            if (!isActive) {
+                currentItem.classList.add("active");
+            }
+        }
+
+        // Simple Privacy Modal Handlers
+        function openPrivacyModal() {
+            document.getElementById("privacyPopup").style.display = "flex";
+        }
+        function closePrivacyModal() {
+            document.getElementById("privacyPopup").style.display = "none";
+        }
+
+        // Simple Lead Form Submission simulation with thorough form checks
+        function submitLeadForm() {
+            const name = document.getElementById("frmName").value.trim();
+            const phone = document.getElementById("frmPhone").value.trim();
+            const model = document.getElementById("frmModel").value;
+            const agree = document.getElementById("privacyAgree").checked;
+
+            if (!name) {
+                alert("상담을 위해 이름을 정확히 적어주십시오.");
+                return;
+            }
+            if (!phone || phone.length < 9) {
+                alert("연락 가능한 올바른 전화번호를 입력해 주십시오.");
+                return;
+            }
+            if (!model) {
+                alert("보유하시거나 구입 예정인 프리우스의 버전을 선택해 주세요.");
+                return;
+            }
+            if (!agree) {
+                alert("개인정보 처리 방침 약관에 동의하셔야 전문가 맞춤 분석 전송이 가동됩니다.");
+                return;
+            }
+
+            alert(`신청이 성공적으로 접수되었습니다.\n\n신청 모델: ${model}\n성함: ${name} 님\n\n지정해 주신 연락처로 2026년 요율표 기준 최저가 비교 견적서 및 혜택 내역을 발송해 드리겠습니다.`);
+            
+            // Clear fields
+            document.getElementById("frmName").value = "";
+            document.getElementById("frmPhone").value = "";
+            document.getElementById("frmModel").value = "";
+            document.getElementById("privacyAgree").checked = false;
+        }
+
+        // Set Default calculation on page load
+        window.onload = function() {
+            calculatePriusPremium();
+        };
+    </script>
+  
